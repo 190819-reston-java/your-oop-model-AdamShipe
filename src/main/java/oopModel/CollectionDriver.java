@@ -1,26 +1,19 @@
 package oopModel;
 
-//import java.util.ArrayList;
-//import java.util.Arrays;
-//import java.util.HashMap;
-//import java.util.HashSet;
-//import java.util.LinkedList;
-//import java.util.List;
-//import java.util.Map;
-//import java.util.Queue;
-//import java.util.Set;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.Scanner;
 import java.util.SortedSet;
 import java.util.TreeSet;
-//import java.io.IOException;
-//import java.nio.file.Files;
-//import java.nio.file.Path;
-//import java.nio.file.Paths;
-//import java.nio.file.StandardOpenOption;
+import java.nio.file.Paths;
 
 public class CollectionDriver {
 	
 
 	public static int request;
+
+	private static Scanner myScan = new Scanner(System.in);
 
 	public static void main(String[] args) {	
 
@@ -57,7 +50,7 @@ public class CollectionDriver {
 
 
 		//Sorted by name
-		System.out.println("Who is left?");
+		System.out.println("...who is left?");
 		System.out.println("Everyone stand to the right of someone younger than you!");
 		SortedSet<Velociraptor> sortedPack1 = new TreeSet<Velociraptor>(new RaptorRank());
 		sortedPack1.addAll(pack1);		
@@ -83,11 +76,17 @@ public class CollectionDriver {
 			System.out.println(pack1.get(request/3));
 			
 		}
-		finally {
-			System.out.println("-Hope that worked!-");
+
+		//handling checked Exception
+		System.out.println('\n' + "Let's edit your velociraptor database!");
+		try {
+			Path userPath = Files.createFile(Paths.get("/C/MyVelociraptorDatabase"));
+		} catch (IOException e) {
+			System.out.println("Sorry.  Your Velociraptor database cannot be located on the C drive");
+		} finally {
+			System.out.println("      -Why even live?-");
 			System.exit(1);
 		}
-		
 
 	}
 	
