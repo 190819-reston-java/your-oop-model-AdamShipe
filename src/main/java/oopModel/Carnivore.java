@@ -3,6 +3,5 @@ package oopModel;
 //abstract interface
 public interface Carnivore {
 	
-	
-//	public void hunt();
+	public void hunt();
 }
